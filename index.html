@@ -14,7 +14,7 @@
         }
         body {
             background-color: #121212;
-            color: #e0e0e0;
+            color: #ffffff; /* Ép chữ cơ bản về màu trắng */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,11 +42,11 @@
             pointer-events: none;
         }
 
-        /* --- PHÂN CHIA TRANG (MÀN HÌNH) --- */
+        /* --- PHÂN CHIA TRANG --- */
         .screen { display: none; position: relative; z-index: 1; }
         .screen.active { display: block; }
 
-        /* --- THIẾT KẾ CÁC THÀNH PHẦN NỘI DUNG --- */
+        /* --- QUỐC HIỆU & TIÊU ĐỀ --- */
         .header-grid {
             display: flex;
             justify-content: space-between;
@@ -55,13 +55,14 @@
             line-height: 1.5;
             margin-bottom: 25px;
             text-transform: uppercase;
+            color: #ffffff;
         }
         .header-left { text-align: left; width: 45%; }
         .header-right { text-align: right; width: 50%; }
         .line-decoration {
             width: 60%;
             height: 1px;
-            background: #e0e0e0;
+            background: #ffffff;
             margin: 4px auto 0;
         }
         
@@ -71,7 +72,7 @@
             align-items: center;
             font-size: 12px;
             margin-bottom: 20px;
-            color: #aaa;
+            color: #cccccc;
         }
         .hoa-toc {
             color: #ff3333;
@@ -94,7 +95,7 @@
         .sub-title {
             font-style: italic;
             font-size: 13px;
-            color: #888;
+            color: #aaaaaa;
             margin-bottom: 35px;
         }
 
@@ -117,9 +118,9 @@
             width: 100%;
             padding: 15px;
             background: #262626;
-            border: 1px solid #333;
+            border: 1px solid #333333;
             border-radius: 8px;
-            color: #fff;
+            color: #ffffff;
             font-size: 16px;
             outline: none;
             text-align: center;
@@ -134,7 +135,7 @@
             width: 100%;
             padding: 15px;
             background: #ff3b30;
-            color: white;
+            color: #ffffff;
             border: none;
             border-radius: 8px;
             font-size: 16px;
@@ -148,50 +149,65 @@
         }
         .btn-submit:hover { background: #ff453a; }
 
-        /* --- VĂN BẢN TRANG 2 --- */
+        /* --- ĐỊNH DẠNG CHỮ TRANG 2 (ÉP HIỂN THỊ MÀU TRẮNG SÁNG) --- */
         .content-block {
             text-align: left;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #ccc;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #ffffff !important; /* Ép chữ nội dung phải có màu trắng */
         }
-        .content-block p { margin-bottom: 12px; }
-        .highlight-text { color: #ff453a; font-weight: bold; }
+        .content-block p { 
+            margin-bottom: 14px; 
+            color: #ffffff !important;
+        }
+        .content-block strong {
+            color: #ffffff !important;
+        }
+        .highlight-text { 
+            color: #ff453a !important; 
+            font-weight: bold; 
+        }
         .visitor-name {
-            color: #ff453a;
+            color: #ff453a !important;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 17px;
             text-decoration: underline;
         }
         
         .section-title {
-            color: #ff3b30;
+            color: #ff3b30 !important;
             font-weight: bold;
-            font-size: 14px;
-            margin: 20px 0 8px 0;
+            font-size: 15px;
+            margin: 24px 0 10px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
-        .content-list { list-style: none; padding-left: 5px; }
+        .content-list { 
+            list-style: none; 
+            padding-left: 5px; 
+            margin-bottom: 15px;
+        }
         .content-list li {
             position: relative;
-            padding-left: 15px;
-            margin-bottom: 6px;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            color: #ffffff !important;
         }
         .content-list li::before {
             content: "•";
-            color: #ff3b30;
+            color: #ff3b30 !important;
             position: absolute;
             left: 0;
+            font-weight: bold;
         }
         
         .footer-sign {
             margin-top: 40px;
             text-align: right;
             font-style: italic;
-            font-size: 13px;
-            color: #aaa;
+            font-size: 14px;
+            color: #cccccc;
         }
 
         @media (max-width: 400px) {
@@ -211,7 +227,7 @@
 
         <div id="screen-login" class="screen active">
             <h2 class="main-title" style="font-size: 30px; margin-bottom: 10px;">THƯ MỜI ĐIỆN TỬ</h2>
-            <p style="color: #888; font-style: italic; font-size: 13px;">Vui lòng xác minh danh tính để mở thư</p>
+            <p style="color: #aaaaaa; font-style: italic; font-size: 13px;">Vui lòng xác minh danh tính để mở thư</p>
             
             <div class="form-group">
                 <label class="form-label">⚠️ XÁC MINH DANH TÍNH</label>
@@ -237,8 +253,8 @@
                 <div class="hoa-toc">⚡ HỎA TỐC</div>
             </div>
 
-            <div style="text-align: right; font-size: 11px; color: #888; margin-bottom: 5px;">
-                Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+            <div style="text-align: right; font-size: 11px; color: #aaaaaa; margin-bottom: 15px;">
+                Hà Nội một hôm thứ 5, ngày 21 tháng 5 năm 2026
             </div>
 
             <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
@@ -262,64 +278,4 @@
                 </ul>
 
                 <div class="section-title">Yêu cầu khi tham gia</div>
-                <ul class="content-list">
-                    <li>CCCD hoặc gương mặt thân quen nhất.</li>
-                    <li>Năng lượng tích cực như cái cách tôi đổ xăng (10 nghìn).</li>
-                </ul>
-
-                <div class="section-title" style="text-transform: none; font-style: italic;">Comming soon on my life:</div>
-                <ul class="content-list">
-                    <li>Arc đi làm</li>
-                    <li>Arc thất nghiệp</li>
-                    <li>Arc bị hỏi "bao giờ cưới?"</li>
-                </ul>
-
-                <p style="margin-top: 20px; font-size: 13px;">
-                    Đề nghị đồng chí có mặt đúng giờ và nghiêm túc chấp hành các quy định. Khi đến nơi liên hệ theo số điện thoại: <span class="highlight-text">0349024656</span> để được hướng dẫn và chụp ảnh với tôi.
-                </p>
-            </div>
-
-            <div class="footer-sign">
-                Kỹ sư mới ra trường
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function xacNhanTrieuTap() {
-            var name = document.getElementById('name-input').value.trim();
-            
-            if (name === "") {
-                alert("Vui lòng nhập tên của đồng chí trước khi xác nhận!");
-                return;
-            }
-            
-            // Phát nhạc nền sflw.mp3
-            var music = document.getElementById('bg-music');
-            if (music) {
-                music.play().catch(function(error) {
-                    console.log("Trình duyệt chặn phát âm thanh tự động:", error);
-                });
-            }
-            
-            // Gán tên người nhận vào thư mời
-            document.getElementById('display-name').innerText = name;
-            
-            // Ẩn màn hình nhập tên, hiển thị màn hình nội dung thư mời
-            document.getElementById('screen-login').classList.remove('active');
-            document.getElementById('screen-content').classList.add('active');
-            
-            // ĐƯA LÊN ĐẦU TRANG TUYỆT ĐỐI: Đảm bảo hiển thị trọn vẹn từ Quốc hiệu
-            window.scrollTo(0, 0);
-        }
-
-        // Kích hoạt nút bấm khi nhấn phím Enter trên bàn phím
-        document.getElementById("name-input").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                xacNhanTrieuTap();
-            }
-        });
-    </script>
-</body>
-</html>
+                <ul class
