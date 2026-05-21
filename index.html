@@ -218,7 +218,7 @@
         <source src="sflw.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container">
+    <div class="container" id="main-container">
         <div class="header-grid">
             <div class="header-left">
                 TRƯỜNG ĐẠI HỌC CÔNG NGHỆ<br>GIAO THÔNG VẬN TẢI
@@ -235,4 +235,104 @@
             <div class="hoa-toc">⚡ HỎA TỐC</div>
         </div>
 
-        <div style="text-align: right; font-size: 11
+        <div style="text-align: right; font-size: 11px; color: #888; margin-bottom: 5px;">
+            Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+        </div>
+
+        <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
+        <p class="sub-title">(Lần đầu tiên và duy nhất)</p>
+
+
+        <div id="screen-login" class="screen active">
+            <div class="form-group">
+                <label class="form-label">
+                    <span class="form-label-icon">⚠️</span>XÁC MINH DANH TÍNH
+                </label>
+                <input type="text" id="name-input" class="input-field" placeholder="Nhập tên đồng chí..." autocomplete="off">
+                <button type="button" class="btn-submit" onclick="xacNhanTrieuTap()">Xác nhận triệu tập</button>
+            </div>
+        </div>
+
+
+        <div id="screen-content" class="screen">
+            <div class="content-block">
+                <p><strong>Đại diện cơ quan:</strong> <span class="highlight-text">Hoàng Trọng Sơn, Trung Tâm Điều Phối Những Thằng Ra Trường Muộn</span></p>
+                <p><strong>Yêu cầu triệu tập:</strong> Đồng chí <span id="display-name" class="visitor-name"></span></p>
+                <p>Từ <strong>11 giờ đến 13 giờ sáng ngày 28 tháng 5 năm 2026</strong> có mặt tại <strong>Trường Đại học Công nghệ Giao thông Vận tải, số 54 Triều Khúc</strong> để thực hiện nhiệm vụ:</p>
+
+                <div class="section-title">Nhiệm vụ</div>
+                <ul class="content-list">
+                    <li>Chứng kiến tôi nhận bằng như một người thành đạt.</li>
+                    <li>Chụp ảnh cùng tôi ít nhất 36 tấm ảnh.</li>
+                    <li>Giao lưu cà khịa và nhắc lại chuyện ngu thời đi học.</li>
+                </ul>
+
+                <div class="section-title">Quy định bắt buộc</div>
+                <ul class="content-list">
+                    <li>Không được ghost giấy triệu tập này.</li>
+                </ul>
+
+                <div class="section-title">Yêu cầu khi tham gia</div>
+                <ul class="content-list">
+                    <li>CCCD hoặc gương mặt thân quen nhất.</li>
+                    <li>Năng lượng tích cực như cái cách tôi đổ xăng (10 nghìn).</li>
+                </ul>
+
+                <div class="section-title" style="text-transform: none; font-style: italic;">Comming soon on my life:</div>
+                <ul class="content-list">
+                    <li>Arc đi làm</li>
+                    <li>Arc thất nghiệp</li>
+                    <li>Arc bị hỏi "bao giờ cưới?"</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-size: 13px;">
+                    Đề nghị đồng chí có mặt đúng giờ và nghiêm túc chấp hành các quy định. Khi đến nơi liên hệ theo số điện thoại: <span class="highlight-text">0349024656</span> để được hướng dẫn và chụp ảnh với tôi.
+                </p>
+            </div>
+
+            <div class="footer-sign">
+                Kỹ sư mới ra trường
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function xacNhanTrieuTap() {
+            var name = document.getElementById('name-input').value.trim();
+            
+            if (name === "") {
+                alert("Vui lòng nhập tên của đồng chí trước khi xác nhận!");
+                return;
+            }
+            
+            // Phát nhạc nền sflw.mp3
+            var music = document.getElementById('bg-music');
+            if (music) {
+                music.play().catch(function(error) {
+                    console.log("Trình duyệt chặn phát âm thanh:", error);
+                });
+            }
+            
+            // Chèn tên người nhận
+            document.getElementById('display-name').innerText = name;
+            
+            // Ẩn màn hình nhập, hiện màn hình nội dung
+            document.getElementById('screen-login').classList.remove('active');
+            document.getElementById('screen-content').classList.add('active');
+            
+            // FIX LỖI CO TRANG: Ép cửa sổ cuộn mượt mà lên đầu khung đen chính xác 100%
+            window.scrollTo({
+                top: document.getElementById('main-container').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        // Kích hoạt khi nhấn Enter
+        document.getElementById("name-input").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                xacNhanTrieuTap();
+            }
+        });
+    </script>
+</body>
+</html>
