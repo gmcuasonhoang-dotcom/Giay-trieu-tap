@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GIẤY TRIỆU TẬP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Be+Vietnam+Pro:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Be Vietnam Pro',sans-serif;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.82),
+        rgba(0,0,0,0.88)
+    ),
+
+    url("https://static.vecteezy.com/system/resources/thumbnails/048/042/262/small/red-and-blue-abstract-comic-background-illustration-retro-background-vector.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+
+    min-height:100vh;
+
+    padding:40px;
+}
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:rgba(18,18,18,0.78);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:28px;
+
+    padding:60px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 40px rgba(255,0,0,0.15);
+
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+.left,
+.right{
+
+    width:50%;
+
+    text-align:center;
+
+    line-height:1.7;
+
+    font-weight:600;
+}
+
+.line{
+
+    width:180px;
+
+    height:1px;
+
+    background:white;
+
+    margin:12px auto;
+}
+
+.number{
+
+    margin-top:20px;
+
+    text-align:left;
+
+    font-weight:400;
+}
+
+.flash{
+
+    margin-top:20px;
+
+    color:#ff3b3b;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    transform:rotate(-10deg);
+
+    text-shadow:
+    0 0 10px red,
+    0 0 25px red;
+}
+
+.date{
+
+    text-align:right;
+
+    margin-top:40px;
+
+    opacity:0.8;
+}
+
+.title{
+
+    text-align:center;
+
+    margin-top:50px;
+}
+
+.title h1{
+
+    font-size:68px;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:#ff4d4d;
+
+    letter-spacing:4px;
+
+    text-shadow:
+    0 0 12px red,
+    0 0 28px rgba(255,0,0,0.45);
+}
+
+.subtitle{
+
+    margin-top:10px;
+
+    opacity:0.7;
+
+    font-style:italic;
+}
+
+.verify{
+
+    margin-top:60px;
+}
+
+.verify h2{
+
+    color:#ff4d4d;
+
+    margin-bottom:20px;
+}
+
+input{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:18px;
+
+    outline:none;
+
+    border:1px solid transparent;
+
+    transition:0.3s;
+}
+
+input:focus{
+
+    border:1px solid #ff4d4d;
+
+    box-shadow:
+    0 0 18px rgba(255,0,0,0.3);
+}
+
+button{
+
+    margin-top:20px;
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ff3b3b;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 18px rgba(255,0,0,0.3);
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 28px rgba(255,0,0,0.55);
+}
+
+.paper{
+
+    display:none;
+
+    margin-top:70px;
+
+    line-height:2.3;
+
+    font-size:20px;
+
+    animation:fadePaper 1s ease;
+}
+
+@keyframes fadePaper{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.highlight{
+
+    color:#ff4d4d;
+
+    font-weight:700;
+}
+
+.sectionTitle{
+
+    margin-top:35px;
+
+    color:#ff4d4d;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.quote{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    font-size:26px;
+
+    font-style:italic;
+
+    color:#d1d1d1;
+}
+
+.footer{
+
+    margin-top:100px;
+
+    text-align:right;
+}
+
+.footer .role{
+
+    margin-bottom:12px;
+
+    font-size:22px;
+}
+
+.footer .name{
+
+    color:#ff4d4d;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    text-shadow:
+    0 0 10px rgba(255,0,0,0.4);
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:20px;
+    }
+
+    .container{
+        padding:30px;
+    }
+
+    .top{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    .title h1{
+        font-size:42px;
+    }
+
+    .paper{
+        font-size:17px;
+        line-height:2;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top">
+
+        <div class="left">
+
+            TRƯỜNG ĐẠI HỌC CÔNG NGHỆ<br>
+            GIAO THÔNG VẬN TẢI
+
+            <div class="line"></div>
+
+            <div class="number">
+                Số: ...........................
+            </div>
+
+            <div class="flash">
+                ⚡ HỎA TỐC
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>
+            Độc lập - Tự do - Hạnh phúc
+
+            <div class="line"></div>
+
+        </div>
+
+    </div>
+
+    <div class="date">
+        Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+    </div>
+
+    <div class="title">
+
+        <h1>GIẤY TRIỆU TẬP</h1>
+
+        <div class="subtitle">
+            (Lần đầu tiên và duy nhất)
+        </div>
+
+    </div>
+
+    <div class="verify">
+
+        <h2>⚠️ XÁC MINH DANH TÍNH</h2>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Nhập tên đồng chí..."
+        >
+
+        <button onclick="generatePaper()">
+            XÁC NHẬN TRIỆU TẬP
+        </button>
+
+    </div>
+
+    <div class="paper" id="paper">
+
+        <p>
+            Đại diện cơ quan:
+            <span class="highlight">
+                Hoàng Trọng Sơn, Trung Tâm Điều Phối Những Thằng Ra Trường Muộn
+            </span>
+        </p>
+
+        <p>
+            Yêu cầu triệu tập:
+            Đồng chí
+            <span class="highlight" id="displayName"></span>
+        </p>
+
+        <p>
+            Từ 11 giờ đến 13 giờ sáng ngày 28 tháng 5 năm 2026 có mặt tại Trường Đại học Công nghệ Giao thông Vận tải, số 54 Triều Khúc để thực hiện nhiệm vụ:
+        </p>
+
+        <div class="sectionTitle">
+            NHIỆM VỤ
+        </div>
+
+        <p>• Chứng kiến tôi nhận bằng như một người thành đạt.</p>
+
+        <p>• Chụp ảnh cùng tôi ít nhất 36 tấm ảnh.</p>
+
+        <p>• Giao lưu cà khịa và nhắc lại chuyện ngu thời đi học.</p>
+
+        <div class="sectionTitle">
+            QUY ĐỊNH BẮT BUỘC
+        </div>
+
+        <p>• Không được ghost giấy triệu tập này.</p>
+
+        <div class="sectionTitle">
+            YÊU CẦU KHI THAM GIA
+        </div>
+
+        <p>• CCCD hoặc gương mặt thân quen nhất.</p>
+
+        <p>• Năng lượng tích cực như cái cách tôi đổ xăng (10 nghìn)</p>
+
+        <div class="sectionTitle">
+            COMMING SOON ON MY LIFE
+        </div>
+
+        <p>• Arc đi làm</p>
+        <p>• Arc thất nghiệp</p>
+        <p>• Arc bị hỏi “bao giờ cưới?”</p>
+
+        <div class="quote">
+            “Bạn được triệu tập vì đã là một phần của thanh xuân này.”
+        </div>
+
+        <p style="margin-top:60px;">
+            Đề nghị đồng chí có mặt đúng giờ và nghiêm túc chấp hành các quy định.
+            Khi đến nơi liên hệ theo số điện thoại:
+            <span class="highlight">0349024656</span>
+            để được hướng dẫn và chụp ảnh với tôi.
+        </p>
+
+        <div class="footer">
+
+            <div class="role">
+                Kỹ sư mới ra trường
+            </div>
+
+            <div class="name">
+                Sơn
+            </div>
+
+            <br>
+
+            <div>
+                Hoàng Trọng Sơn
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- NHẠC -->
+
+<video autoplay loop muted playsinline style="display:none;">
+    <source src="music.mp3" type="audio/mp4">
+</video>
+
+<script>
+
+window.onload = () => {
+
+    const audio = new Audio("music.mp3");
+
+    audio.loop = true;
+
+    audio.volume = 0.25;
+
+    audio.play().catch(() => {
+
+        console.log("Browser chặn autoplay 😭");
+
+    });
+
+}
+
+function generatePaper(){
+
+    let name =
+    document.getElementById("nameInput").value;
+
+    if(name.trim()===""){
+
+        alert("Nhập tên đi đồng chí 💀");
+        return;
+    }
+
+    document.getElementById("displayName").innerText=name;
+
+    document.getElementById("paper").style.display="block";
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
