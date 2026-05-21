@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giấy Triệu Tập Tốt Nghiệp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    
     <style>
         /* --- GIAO DIỆN CHUNG --- */
         * {
@@ -65,22 +69,35 @@
             margin: 4px auto 0;
         }
         
-        .sub-info {
+        /* Cấu trúc dòng thông tin số hiệu và ngày tháng */
+        .sub-info-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
+            align-items: flex-start;
             margin-bottom: 20px;
+        }
+        .sub-info-left {
+            text-align: left;
+            font-size: 12px;
             color: #cccccc;
         }
+        .sub-info-right {
+            text-align: right;
+            font-size: 11px;
+            color: #aaaaaa;
+            padding-top: 2px;
+        }
+        
+        /* Hiệu ứng chữ HỎA TỐC bên trái */
         .hoa-toc {
             color: #ff3333;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 20px;
             font-style: italic;
             text-shadow: 0 0 10px rgba(255,51,51,0.6);
-            transform: rotate(-10deg);
+            transform: rotate(-5deg);
             display: inline-block;
+            margin-top: 8px;
         }
 
         .main-title {
@@ -192,18 +209,41 @@
             font-weight: bold;
         }
         
-        .footer-sign {
-            margin-top: 40px;
+        /* Khu vực ký tên góc dưới bên phải */
+        .footer-sign-zone {
+            margin-top: 35px;
             text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .signature-handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: #ff453a;
+            text-shadow: 0 0 8px rgba(255,69,58,0.5);
+            margin-right: 35px;
+            margin-bottom: -5px;
+            transform: rotate(-8deg);
+            user-select: none;
+        }
+        .footer-role {
             font-style: italic;
             font-size: 14px;
             color: #cccccc;
+            margin-bottom: 3px;
+        }
+        .footer-name {
+            font-weight: bold;
+            font-size: 15px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
         }
 
         @media (max-width: 400px) {
             .header-grid { font-size: 8px; }
             .main-title { font-size: 28px; }
-            .hoa-toc { font-size: 18px; }
+            .hoa-toc { font-size: 16px; }
         }
     </style>
 </head>
@@ -238,13 +278,14 @@
                 </div>
             </div>
 
-            <div class="sub-info">
-                <div>Số: ...........................</div>
-                <div class="hoa-toc">⚡ HỎA TỐC</div>
-            </div>
-
-            <div style="text-align: right; font-size: 11px; color: #aaaaaa; margin-bottom: 15px;">
-                Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+            <div class="sub-info-row">
+                <div class="sub-info-left">
+                    <div>Số: ...........................</div>
+                    <div class="hoa-toc">⚡ HỎA TỐC</div>
+                </div>
+                <div class="sub-info-right">
+                    Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+                </div>
             </div>
 
             <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
@@ -285,8 +326,10 @@
                 </p>
             </div>
 
-            <div class="footer-sign">
-                Kỹ sư mới ra trường
+            <div class="footer-sign-zone">
+                <div class="footer-role">Kỹ sư mới ra trường</div>
+                <div class="signature-handwritten">Sơn</div>
+                <div class="footer-name">Hoàng Trọng Sơn</div>
             </div>
         </div>
 
@@ -316,7 +359,7 @@
                 displayName.innerText = name;
             }
             
-            // Ẩn trang 1, hiện trang 2 công thức chuẩn
+            // Ẩn trang nhập tên, hiện trang thư mời
             var loginScreen = document.getElementById('screen-login');
             var contentScreen = document.getElementById('screen-content');
             
@@ -326,7 +369,7 @@
             }
         }
 
-        // Nhấn Enter để kích hoạt luôn nút bấm
+        // Bấm Enter để kích hoạt luôn nút
         document.getElementById("name-input").addEventListener("keyup", function(event) {
             if (event.key === "Enter") {
                 xacNhanTrieuTap();
