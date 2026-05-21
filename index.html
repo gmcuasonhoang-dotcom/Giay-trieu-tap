@@ -42,7 +42,11 @@
             pointer-events: none;
         }
 
-        /* --- QUỐC HIỆU & TIÊU ĐỀ --- */
+        /* --- PHÂN CHIA TRANG (MÀN HÌNH) --- */
+        .screen { display: none; position: relative; z-index: 1; }
+        .screen.active { display: block; }
+
+        /* --- THIẾT KẾ CÁC THÀNH PHẦN NỘI DUNG --- */
         .header-grid {
             display: flex;
             justify-content: space-between;
@@ -79,7 +83,6 @@
             display: inline-block;
         }
 
-        /* --- HIỆU ỨNG CHỮ NEON ĐỎ --- */
         .main-title {
             font-size: 38px;
             font-weight: 900;
@@ -95,76 +98,65 @@
             margin-bottom: 35px;
         }
 
-        /* --- TRANG 1: MÀN HÌNH NHẬP TÊN --- */
-        .screen { display: none; position: relative; z-index: 1; }
-        .screen.active { display: block; }
-
+        /* --- FORM NHẬP TÊN TRANG 1 --- */
         .form-group {
-            margin-top: 40px;
+            margin: 40px 0;
             text-align: left;
         }
         .form-label {
             color: #ff3b30;
             font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 10px;
+            font-size: 16px;
+            margin-bottom: 12px;
             display: block;
+            text-align: center;
+            letter-spacing: 1px;
         }
-        .form-label-icon { margin-right: 5px; }
         
         .input-field {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background: #262626;
             border: 1px solid #333;
             border-radius: 8px;
             color: #fff;
             font-size: 16px;
             outline: none;
+            text-align: center;
             transition: 0.3s;
         }
         .input-field:focus {
             border-color: #ff3b30;
-            box-shadow: 0 0 8px rgba(255, 59, 48, 0.3);
+            box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
         }
 
         .btn-submit {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background: #ff3b30;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
-            margin-top: 20px;
+            margin-top: 25px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
             transition: 0.2s;
+            letter-spacing: 1px;
         }
-        .btn-submit:hover {
-            background: #ff453a;
-            transform: translateY(-1px);
-        }
-        .btn-submit:active {
-            transform: translateY(1px);
-        }
+        .btn-submit:hover { background: #ff453a; }
 
-        /* --- TRANG 2: NỘI DUNG THƯ MỜI --- */
+        /* --- VĂN BẢN TRANG 2 --- */
         .content-block {
             text-align: left;
             font-size: 14px;
             line-height: 1.6;
             color: #ccc;
         }
-        .content-block p {
-            margin-bottom: 12px;
-        }
-        .highlight-text {
-            color: #ff453a;
-            font-weight: bold;
-        }
+        .content-block p { margin-bottom: 12px; }
+        .highlight-text { color: #ff453a; font-weight: bold; }
         .visitor-name {
             color: #ff453a;
             font-weight: bold;
@@ -181,10 +173,7 @@
             letter-spacing: 0.5px;
         }
         
-        .content-list {
-            list-style: none;
-            padding-left: 5px;
-        }
+        .content-list { list-style: none; padding-left: 5px; }
         .content-list li {
             position: relative;
             padding-left: 15px;
@@ -218,43 +207,43 @@
         <source src="sflw.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container" id="main-container">
-        <div class="header-grid">
-            <div class="header-left">
-                TRƯỜNG ĐẠI HỌC CÔNG NGHỆ<br>GIAO THÔNG VẬN TẢI
-                <div class="line-decoration"></div>
-            </div>
-            <div class="header-right">
-                CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc
-                <div class="line-decoration"></div>
-            </div>
-        </div>
-
-        <div class="sub-info">
-            <div>Số: ...........................</div>
-            <div class="hoa-toc">⚡ HỎA TỐC</div>
-        </div>
-
-        <div style="text-align: right; font-size: 11px; color: #888; margin-bottom: 5px;">
-            Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
-        </div>
-
-        <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
-        <p class="sub-title">(Lần đầu tiên và duy nhất)</p>
-
+    <div class="container">
 
         <div id="screen-login" class="screen active">
+            <h2 class="main-title" style="font-size: 30px; margin-bottom: 10px;">THƯ MỜI ĐIỆN TỬ</h2>
+            <p style="color: #888; font-style: italic; font-size: 13px;">Vui lòng xác minh danh tính để mở thư</p>
+            
             <div class="form-group">
-                <label class="form-label">
-                    <span class="form-label-icon">⚠️</span>XÁC MINH DANH TÍNH
-                </label>
-                <input type="text" id="name-input" class="input-field" placeholder="Nhập tên đồng chí..." autocomplete="off">
+                <label class="form-label">⚠️ XÁC MINH DANH TÍNH</label>
+                <input type="text" id="name-input" class="input-field" placeholder="Nhập tên đồng chí tại đây..." autocomplete="off">
                 <button type="button" class="btn-submit" onclick="xacNhanTrieuTap()">Xác nhận triệu tập</button>
             </div>
         </div>
 
-
         <div id="screen-content" class="screen">
+            <div class="header-grid">
+                <div class="header-left">
+                    TRƯỜNG ĐẠI HỌC CÔNG NGHỆ<br>GIAO THÔNG VẬN TẢI
+                    <div class="line-decoration"></div>
+                </div>
+                <div class="header-right">
+                    CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc
+                    <div class="line-decoration"></div>
+                </div>
+            </div>
+
+            <div class="sub-info">
+                <div>Số: ...........................</div>
+                <div class="hoa-toc">⚡ HỎA TỐC</div>
+            </div>
+
+            <div style="text-align: right; font-size: 11px; color: #888; margin-bottom: 5px;">
+                Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
+            </div>
+
+            <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
+            <p class="sub-title">(Lần đầu tiên và duy nhất)</p>
+
             <div class="content-block">
                 <p><strong>Đại diện cơ quan:</strong> <span class="highlight-text">Hoàng Trọng Sơn, Trung Tâm Điều Phối Những Thằng Ra Trường Muộn</span></p>
                 <p><strong>Yêu cầu triệu tập:</strong> Đồng chí <span id="display-name" class="visitor-name"></span></p>
@@ -294,6 +283,7 @@
                 Kỹ sư mới ra trường
             </div>
         </div>
+
     </div>
 
     <script>
@@ -309,25 +299,22 @@
             var music = document.getElementById('bg-music');
             if (music) {
                 music.play().catch(function(error) {
-                    console.log("Trình duyệt chặn phát âm thanh:", error);
+                    console.log("Trình duyệt chặn phát âm thanh tự động:", error);
                 });
             }
             
-            // Chèn tên người nhận
+            // Gán tên người nhận vào thư mời
             document.getElementById('display-name').innerText = name;
             
-            // Ẩn màn hình nhập, hiện màn hình nội dung
+            // Ẩn màn hình nhập tên, hiển thị màn hình nội dung thư mời
             document.getElementById('screen-login').classList.remove('active');
             document.getElementById('screen-content').classList.add('active');
             
-            // FIX LỖI CO TRANG: Ép cửa sổ cuộn mượt mà lên đầu khung đen chính xác 100%
-            window.scrollTo({
-                top: document.getElementById('main-container').offsetTop - 20,
-                behavior: 'smooth'
-            });
+            // ĐƯA LÊN ĐẦU TRANG TUYỆT ĐỐI: Đảm bảo hiển thị trọn vẹn từ Quốc hiệu
+            window.scrollTo(0, 0);
         }
 
-        // Kích hoạt khi nhấn Enter
+        // Kích hoạt nút bấm khi nhấn phím Enter trên bàn phím
         document.getElementById("name-input").addEventListener("keyup", function(event) {
             if (event.key === "Enter") {
                 xacNhanTrieuTap();
