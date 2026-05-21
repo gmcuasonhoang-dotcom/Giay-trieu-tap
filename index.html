@@ -14,7 +14,7 @@
         }
         body {
             background-color: #121212;
-            color: #ffffff; /* Ép chữ cơ bản về màu trắng */
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,7 +32,6 @@
             position: relative;
             overflow: hidden;
         }
-        /* Hiệu ứng chấm bi mờ ảo ở 2 bên cánh */
         .container::before {
             content: '';
             position: absolute;
@@ -46,7 +45,7 @@
         .screen { display: none; position: relative; z-index: 1; }
         .screen.active { display: block; }
 
-        /* --- QUỐC HIỆU & TIÊU ĐỀ --- */
+        /* --- CẤU TRÚC TIÊU ĐỀ --- */
         .header-grid {
             display: flex;
             justify-content: space-between;
@@ -99,7 +98,7 @@
             margin-bottom: 35px;
         }
 
-        /* --- FORM NHẬP TÊN TRANG 1 --- */
+        /* --- FORM TRANG 1 --- */
         .form-group {
             margin: 40px 0;
             text-align: left;
@@ -126,10 +125,6 @@
             text-align: center;
             transition: 0.3s;
         }
-        .input-field:focus {
-            border-color: #ff3b30;
-            box-shadow: 0 0 10px rgba(255, 59, 48, 0.4);
-        }
 
         .btn-submit {
             width: 100%;
@@ -149,33 +144,29 @@
         }
         .btn-submit:hover { background: #ff453a; }
 
-        /* --- ĐỊNH DẠNG CHỮ TRANG 2 (ÉP HIỂN THỊ MÀU TRẮNG SÁNG) --- */
+        /* --- NỘI DUNG TRANG 2 --- */
         .content-block {
             text-align: left;
             font-size: 15px;
             line-height: 1.7;
-            color: #ffffff !important; /* Ép chữ nội dung phải có màu trắng */
+            color: #ffffff;
         }
         .content-block p { 
             margin-bottom: 14px; 
-            color: #ffffff !important;
-        }
-        .content-block strong {
-            color: #ffffff !important;
         }
         .highlight-text { 
-            color: #ff453a !important; 
+            color: #ff453a; 
             font-weight: bold; 
         }
         .visitor-name {
-            color: #ff453a !important;
+            color: #ff453a;
             font-weight: bold;
             font-size: 17px;
             text-decoration: underline;
         }
         
         .section-title {
-            color: #ff3b30 !important;
+            color: #ff3b30;
             font-weight: bold;
             font-size: 15px;
             margin: 24px 0 10px 0;
@@ -192,11 +183,10 @@
             position: relative;
             padding-left: 18px;
             margin-bottom: 8px;
-            color: #ffffff !important;
         }
         .content-list li::before {
             content: "•";
-            color: #ff3b30 !important;
+            color: #ff3b30;
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -254,7 +244,7 @@
             </div>
 
             <div style="text-align: right; font-size: 11px; color: #aaaaaa; margin-bottom: 15px;">
-                Hà Nội một hôm thứ 5, ngày 21 tháng 5 năm 2026
+                Hà Nội một hôm thứ 4, ngày 20 tháng 5 năm 2026
             </div>
 
             <h1 class="main-title">GIẤY TRIỆU TẬP</h1>
@@ -278,4 +268,70 @@
                 </ul>
 
                 <div class="section-title">Yêu cầu khi tham gia</div>
-                <ul class
+                <ul class="content-list">
+                    <li>CCCD hoặc gương mặt thân quen nhất.</li>
+                    <li>Năng lượng tích cực như cái cách tôi đổ xăng (10 nghìn).</li>
+                </ul>
+
+                <div class="section-title" style="text-transform: none; font-style: italic;">Comming soon on my life:</div>
+                <ul class="content-list">
+                    <li>Arc đi làm</li>
+                    <li>Arc thất nghiệp</li>
+                    <li>Arc bị hỏi "bao giờ cưới?"</li>
+                </ul>
+
+                <p style="margin-top: 25px; font-size: 14px;">
+                    Đề nghị đồng chí có mặt đúng giờ và nghiêm túc chấp hành các quy định. Khi đến nơi liên hệ theo số điện thoại: <span class="highlight-text">0349024656</span> để được hướng dẫn và chụp ảnh với tôi.
+                </p>
+            </div>
+
+            <div class="footer-sign">
+                Kỹ sư mới ra trường
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function xacNhanTrieuTap() {
+            var nameInput = document.getElementById('name-input');
+            var name = nameInput ? nameInput.value.trim() : "";
+            
+            if (name === "") {
+                alert("Vui lòng nhập tên của đồng chí trước khi xác nhận!");
+                return;
+            }
+            
+            // Xử lý phát nhạc
+            var music = document.getElementById('bg-music');
+            if (music) {
+                music.play().catch(function(error) {
+                    console.log("Trình duyệt chặn phát nhạc tự động:", error);
+                });
+            }
+            
+            // Gán tên hiển thị
+            var displayName = document.getElementById('display-name');
+            if (displayName) {
+                displayName.innerText = name;
+            }
+            
+            // Ẩn trang 1, hiện trang 2 công thức chuẩn
+            var loginScreen = document.getElementById('screen-login');
+            var contentScreen = document.getElementById('screen-content');
+            
+            if (loginScreen && contentScreen) {
+                loginScreen.style.display = 'none';
+                contentScreen.style.display = 'block';
+            }
+        }
+
+        // Nhấn Enter để kích hoạt luôn nút bấm
+        document.getElementById("name-input").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                xacNhanTrieuTap();
+            }
+        });
+    </script>
+</body>
+</html>
