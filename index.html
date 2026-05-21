@@ -49,24 +49,32 @@
         .screen { display: none; position: relative; z-index: 1; }
         .screen.active { display: block; }
 
-        /* --- CẤU TRÚC TIÊU ĐỀ --- */
+        /* --- ĐÃ FIX: CẤU TRÚC TIÊU ĐỀ CĂN GIỮA ĐỀU --- */
         .header-grid {
             display: flex;
-            justify-content: space-between;
-            font-size: 10px;
+            flex-direction: column; /* Đổi sang dọc để xếp chồng và căn giữa */
+            align-items: center;
+            font-size: 11px;
             font-weight: bold;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 25px;
             text-transform: uppercase;
             color: #ffffff;
+            gap: 15px; /* Tạo khoảng cách giữa 2 khối chữ */
         }
-        .header-left { text-align: left; width: 45%; }
-        .header-right { text-align: right; width: 50%; }
+        .header-left { 
+            text-align: center; 
+            width: 100%; 
+        }
+        .header-right { 
+            text-align: center; 
+            width: 100%; 
+        }
         .line-decoration {
-            width: 60%;
+            width: 120px; /* Thu gọn độ dài thanh gạch chân cho đẹp khi căn giữa */
             height: 1px;
             background: #ffffff;
-            margin: 4px auto 0;
+            margin: 5px auto 0;
         }
         
         /* Cấu trúc dòng thông tin số hiệu và ngày tháng */
@@ -88,7 +96,6 @@
             padding-top: 2px;
         }
         
-        /* Hiệu ứng chữ HỎA TỐC bên trái */
         .hoa-toc {
             color: #ff3333;
             font-weight: 900;
@@ -209,22 +216,24 @@
             font-weight: bold;
         }
         
-        /* Khu vực ký tên góc dưới bên phải */
+        /* Chữ ký giữ nguyên ở góc phải nhưng nội bộ khối được căn đều */
         .footer-sign-zone {
             margin-top: 35px;
             text-align: right;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
+            float: right;
+            padding-right: 15px;
         }
         .signature-handwritten {
             font-family: 'Caveat', cursive;
             font-size: 42px;
             color: #ff453a;
             text-shadow: 0 0 8px rgba(255,69,58,0.5);
-            margin-right: 35px;
+            margin-top: -5px;
             margin-bottom: -5px;
-            transform: rotate(-8deg);
+            transform: rotate(-6deg);
             user-select: none;
         }
         .footer-role {
@@ -240,8 +249,14 @@
             letter-spacing: 0.5px;
         }
 
+        .container::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
         @media (max-width: 400px) {
-            .header-grid { font-size: 8px; }
+            .header-grid { font-size: 9px; }
             .main-title { font-size: 28px; }
             .hoa-toc { font-size: 16px; }
         }
@@ -267,14 +282,15 @@
         </div>
 
         <div id="screen-content" class="screen">
+            
             <div class="header-grid">
-                <div class="header-left">
-                    TRƯỜNG ĐẠI HỌC CÔNG NGHỆ<br>GIAO THÔNG VẬN TẢI
-                    <div class="line-decoration"></div>
-                </div>
                 <div class="header-right">
                     CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br>Độc lập - Tự do - Hạnh phúc
                     <div class="line-decoration"></div>
+                </div>
+                <div class="header-left">
+                    TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI
+                    <div class="line-decoration" style="width: 160px;"></div>
                 </div>
             </div>
 
@@ -345,7 +361,6 @@
                 return;
             }
             
-            // Xử lý phát nhạc
             var music = document.getElementById('bg-music');
             if (music) {
                 music.play().catch(function(error) {
@@ -353,13 +368,11 @@
                 });
             }
             
-            // Gán tên hiển thị
             var displayName = document.getElementById('display-name');
             if (displayName) {
                 displayName.innerText = name;
             }
             
-            // Ẩn trang nhập tên, hiện trang thư mời
             var loginScreen = document.getElementById('screen-login');
             var contentScreen = document.getElementById('screen-content');
             
@@ -369,7 +382,6 @@
             }
         }
 
-        // Bấm Enter để kích hoạt luôn nút
         document.getElementById("name-input").addEventListener("keyup", function(event) {
             if (event.key === "Enter") {
                 xacNhanTrieuTap();
